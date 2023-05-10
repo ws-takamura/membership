@@ -1,19 +1,11 @@
-import Layout from "@/components/Layout/Layout";
-import Button from "@mui/material/Button";
+import Layout from "@/components/Layout/Admin/Layout";
 
 export default function Home() {
     return (
         <>
-            <p>会員管理</p>
-            <Button variant="contained" color="secondary">
-                Success!
-            </Button>
+            <p>トップ</p>
         </>
     );
 }
 
-Home.getLayout = (page) => (
-  <Layout>
-    {page}
-  </Layout>
-)
+Home.getLayout = (page) => <Layout>{page}</Layout>;

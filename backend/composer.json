@@ -9,10 +9,11 @@
     "license": "MIT",
     "require": {
         "php": "^7.2.5|^8.0",
-        "psr/container": "1.1.1",
         "fideloper/proxy": "^4.4",
+        "fruitcake/laravel-cors": "^3.0",
         "laravel/framework": "^6.20.26",
-        "laravel/tinker": "^2.5"
+        "laravel/tinker": "^2.5",
+        "psr/container": "1.1.1"
     },
     "require-dev": {
         "facade/ignition": "^1.16.15",

@@ -12,26 +12,11 @@ import ListItemText from "@mui/material/ListItemText";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 
-// MUI Icon
-import GroupIcon from "@mui/icons-material/Group";
-import ListAltIcon from "@mui/icons-material/ListAlt";
-import LocalOfferIcon from "@mui/icons-material/LocalOffer";
-import MailIcon from "@mui/icons-material/Mail";
-import TimelineIcon from "@mui/icons-material/Timeline";
-
 const drawerWidth = 240;
 const miniDrawerWidth = 60;
 
-export default function SideBar({ drawerOpen }) {
+export default function SideBar({ drawerOpen, menuList }) {
     const router = useRouter();
-
-    const menuList = [
-        { text: "会員管理", icon: <ListAltIcon />, path: "/" },
-        { text: "グループ管理", icon: <GroupIcon />, path: "/groups" },
-        { text: "タグ管理", icon: <LocalOfferIcon />, path: "/tags" },
-        { text: "メール管理", icon: <MailIcon />, path: "/mails" },
-        { text: "アクセス解析", icon: <TimelineIcon />, path: "/access" },
-    ];
 
     return (
         <Box
@@ -75,14 +60,29 @@ export default function SideBar({ drawerOpen }) {
                             >
                                 <ListItem disablePadding>
                                     <ListItemButton
-                                        selected={
-                                            router.pathname === list.path
-                                                ? true
-                                                : false
-                                        }
+                                        sx={{
+                                            backgroundColor:
+                                                router.pathname.startsWith(
+                                                    list.path
+                                                )
+                                                    ? "primary.main"
+                                                    : "transparent",
+                                            "&:hover": {
+                                                backgroundColor:
+                                                    router.pathname.startsWith(
+                                                        list.path
+                                                    ) && "primary.main",
+                                            },
+                                        }}
                                     >
                                         <ListItemIcon
-                                            style={{ color: "inherit" }}
+                                            sx={{
+                                                color: router.pathname.startsWith(
+                                                    list.path
+                                                )
+                                                    ? "text.white"
+                                                    : "inherit",
+                                            }}
                                         >
                                             {list.icon}
                                         </ListItemIcon>
@@ -101,6 +101,11 @@ export default function SideBar({ drawerOpen }) {
                                                         opacity: drawerOpen
                                                             ? 1
                                                             : 0,
+                                                        color: router.pathname.startsWith(
+                                                            list.path
+                                                        )
+                                                            ? "text.white"
+                                                            : "inherit",
                                                     }}
                                                 >
                                                     {list.text}

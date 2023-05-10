@@ -4,6 +4,7 @@ const theme = createTheme({
     palette: {
         text: {
             primary: "#344767",
+            white: "#FFFFFF"
         },
         background: {
             default: "#F0F2F5",
@@ -11,6 +12,9 @@ const theme = createTheme({
         },
         white: {
             main: "#ffffff",
+        },
+        secondary: {
+            main: "#344767",
         },
     },
     typography: {
